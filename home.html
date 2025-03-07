@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en-us">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>HomePage</title>
+        <link rel="stylesheet" href="test.css">
+    </head>
+
+    <body onload="checkCookies()">
+
+        <p id="demo">Checking....</p>
+
+        <script>
+            let para = document.createElement("p");
+            para.id="cookiesStatus";
+            para.textContent = "Cookies are: ";
+            document.body.appendChild(para);
+
+            let divs = document.createElement("div");
+            divs.id = "cookiesDiv";
+            divs.style.border = "2px solid black";
+            divs.style.textAlign = "center";
+            document.body.appendChild(divs)
+
+            let cookiesDiv = document.getElementById("cookiesDiv");
+            let cookiesPara = document.getElementById("cookiesStatus");
+            cookiesDiv.appendChild(cookiesPara);
+           
+
+            function checkCookies(){
+                let text= navigator.cookiesEnabled == true ? "cookies are enabled" : "cookies are not enabled";
+                cookiesPara.textContent = text;
+            }
+
+        </script>
+
+    </body>
+
+    </html>
