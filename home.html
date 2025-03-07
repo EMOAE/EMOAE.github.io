@@ -10,11 +10,7 @@
     <body onload="checkCookies()">
 
         <p id="demo">Checking....</p>
-<<<<<<< HEAD
-        <p id="demo">Checking1....</p>
-=======
-        <p id="demo1">Checking....</p>
->>>>>>> new-edit
+        <p id="demo1">Checking1....</p>
 
         <script>
             let para = document.createElement("p");
@@ -47,7 +43,42 @@
 
            let show = document.getElementsById("demo");
            show.innerHTML = head[0].innerHTML;
+
+
+           async function checkId () {
+            return new Promise(function(resolve,reject){
+                const Arrs = ["first","second","third","fourth","fifth"];
+
+                Arrs.forEach(arrs){
+                    let text = "";
+                    const regx = /[aieou]/gi;
+                    const match = arrs.match(regx);
+                    if(match){
+                    text += match.toUpperCase();
+                    }else{
+                    text = "there is no match";
+                    }
+                }
+
+                setTimeout(function(){
+
+                }, 2000)
+
+
+
+            })
+           }
            
+           async function idChecked(){
+            try{
+
+            }catch(err){
+
+            }
+            
+           }
+
+           idChecked();
 
             function checkCookies(){
                 let text= navigator.cookiesEnabled == true ? "cookies are enabled" : "cookies are not enabled";
