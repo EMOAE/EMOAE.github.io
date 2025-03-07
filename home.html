@@ -45,42 +45,38 @@
            show.innerHTML = head[0].innerHTML;
 
 
-           async function checkId () {
-            return new Promise(function(resolve,reject){
-                const Arrs = ["first","second","third","fourth","fifth"];
+      async function checkId() {
+    return new Promise((resolve, reject) => {
+        const Arrs = ["first", "second", "third", "fourth", "fifth"];
+        let results = [];
 
-                Arrs.forEach(arrs){
-                    let text = "";
-                    const regx = /[aieou]/gi;
-                    const match = arrs.match(regx);
-                    if(match){
-                    text += match.toUpperCase();
-                    }else{
-                    text = "there is no match";
-                    }
-                }
-
-                setTimeout(function(){
-
-                }, 2000)
-
-
-
-            })
-           }
-           
-           async function idChecked(){
-            try{
-                const result = await checkId();
-                document.getElementById("demo1").innerHTML = result;
-
-            }catch(err){
-                document.getElementById("demo1").innerHTML = err;
+        Arrs.forEach(arr => {
+            const regx = /[aeiou]/gi;
+            const match = arr.match(regx);
+            if (match) {
+                results.push(match.join("").toUpperCase()); // Convert matched letters to uppercase
+            } else {
+                results.push("NO MATCH");
             }
-            
-           }
+        });
 
-           idChecked();
+        setTimeout(() => {
+            resolve(results.join(", ")); // Resolve after 2s with processed results
+        }, 2000);
+    });
+}
+
+async function idChecked() {
+    try {
+        const result = await checkId();
+        document.getElementById("demo1").innerHTML = `Vowels Extracted: ${result}`;
+    } catch (err) {
+        document.getElementById("demo1").innerHTML = `Error: ${err}`;
+    }
+}
+
+idChecked();
+
 
             function checkCookies(){
                 let text= navigator.cookiesEnabled == true ? "cookies are enabled" : "cookies are not enabled";
