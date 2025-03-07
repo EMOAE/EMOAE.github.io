@@ -26,6 +26,15 @@
             let cookiesDiv = document.getElementById("cookiesDiv");
             let cookiesPara = document.getElementById("cookiesStatus");
             cookiesDiv.appendChild(cookiesPara);
+
+
+            const btns = document.createElement("button");
+            btns.textContent = "click me";
+            btns.type="button";
+            btns.addEventListener('click', function(){
+                return "Hello you clicked me"
+            })
+            document.body.appendChild(btns);
            
 
             function checkCookies(){
