@@ -38,6 +38,10 @@
 
             const head = document.createElement("h2");
             head.textContent = "GIT BRANCH";
+            document.body.appendChild(head);
+
+           let show = document.getElementsById("demo");
+           show.innerHTML = head[0].innerHTML;
            
 
             function checkCookies(){
